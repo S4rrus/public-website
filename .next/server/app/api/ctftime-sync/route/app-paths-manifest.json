@@ -1,0 +1,3 @@
+{
+  "/api/ctftime-sync/route": "app/api/ctftime-sync/route.js"
+}

@@ -25,6 +25,19 @@ type EventResponse = {
   url?: string;
 };
 
+type TeamProfileDoc = {
+  _id: string;
+  _type: 'teamProfile';
+  name: string;
+  slug: { _type: 'slug'; current: string };
+  country?: string;
+  website?: string;
+  ctftimeTeamId: number;
+  syncedAt: string;
+  logo?: any;
+  logoUrl?: string;
+};
+
 function requireSecret(request: Request) {
   const expected = process.env.CRON_SECRET;
   if (!expected) return null;
@@ -76,7 +89,7 @@ async function syncTeamProfile() {
   const logoData = await uploadLogoIfNeeded(team);
   const now = new Date().toISOString();
 
-  const doc = {
+  const doc: TeamProfileDoc = {
     _id: 'teamProfile-sarrus',
     _type: 'teamProfile',
     name: team.name,
@@ -85,7 +98,8 @@ async function syncTeamProfile() {
     website: team.website || team.university_website,
     ctftimeTeamId: TEAM_ID,
     syncedAt: now,
-    ...logoData
+    ...(logoData.logo ? { logo: logoData.logo } : {}),
+    ...(logoData.logoUrl ? { logoUrl: logoData.logoUrl } : {})
   };
 
   await writeClient.createOrReplace(doc);

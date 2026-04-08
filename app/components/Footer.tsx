@@ -3,7 +3,7 @@ import { siteSettingsQuery } from '../../lib/sanity.queries';
 
 export default async function Footer() {
   const settings = await client.fetch(siteSettingsQuery);
-  const socials = settings?.socials ?? [
+  const socials: { label: string; url: string }[] = settings?.socials ?? [
     { label: 'CTFtime', url: 'https://ctftime.org/team/393723' },
     { label: 'GitHub', url: '#' },
     { label: 'Discord', url: '#' },

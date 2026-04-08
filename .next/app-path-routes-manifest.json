@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/ctftime-sync/route": "/api/ctftime-sync",
+  "/blog/[slug]/page": "/blog/[slug]",
+  "/blog/page": "/blog",
+  "/page": "/",
+  "/results/page": "/results",
+  "/studio/[[...tool]]/page": "/studio/[[...tool]]",
+  "/team/page": "/team",
+  "/writeups/[slug]/page": "/writeups/[slug]",
+  "/writeups/page": "/writeups"
+}

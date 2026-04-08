@@ -30,8 +30,6 @@
     "typescript": "^6.0.2"
   },
   "overrides": {
-    "preferred-pm": "4.1.1",
-    "which-pm": "3.0.1",
     "@vercel/frameworks": {
       "js-yaml": "3.14.2"
     },
