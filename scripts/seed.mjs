@@ -61,14 +61,78 @@ const teamProfile = {
 };
 
 const teamMembers = [
-  { _id: 'teamMember-0xm4r', handle: '0xm4r', name: '0xm4r', role: 'Team Lead · Web', tags: ['web', 'misc', 'osint'], order: 1 },
-  { _id: 'teamMember-retr0', handle: 'retr0', name: 'retr0', role: 'Pwn · Reverse', tags: ['pwn', 'rev', 'kernel'], order: 2 },
-  { _id: 'teamMember-nullx', handle: 'nullx', name: 'nullx', role: 'Cryptography', tags: ['crypto', 'math', 'ecc'], order: 3 },
-  { _id: 'teamMember-phantom', handle: 'phantom', name: 'phantom', role: 'Reverse Engineering', tags: ['rev', 'malware', 'rust'], order: 4 },
-  { _id: 'teamMember-spectral', handle: 'spectral', name: 'spectral', role: 'Forensics · OSINT', tags: ['forensics', 'osint', 'memory'], order: 5 },
-  { _id: 'teamMember-r4w', handle: 'r4w', name: 'r4w', role: 'Pwn · Exploit Dev', tags: ['pwn', 'rop', 'heap'], order: 6 },
-  { _id: 'teamMember-vxor', handle: 'vxor', name: 'vxor', role: 'Web · Cloud', tags: ['web', 'cloud', 'aws'], order: 7 },
-  { _id: 'teamMember-z3r0t', handle: 'z3r0t', name: 'z3r0t', role: 'Misc · Scripting', tags: ['misc', 'python', 'automation'], order: 8 }
+  {
+    _id: 'teamMember-0xm4r',
+    handle: '0xm4r',
+    name: '0xm4r',
+    role: 'Team Lead · Web',
+    bio: 'Leads strategy and web exploitation with a focus on automation and OSINT-driven recon.',
+    tags: ['web', 'misc', 'osint'],
+    order: 1
+  },
+  {
+    _id: 'teamMember-retr0',
+    handle: 'retr0',
+    name: 'retr0',
+    role: 'Pwn · Reverse',
+    bio: 'Specializes in binary exploitation, kernel internals, and reverse engineering.',
+    tags: ['pwn', 'rev', 'kernel'],
+    order: 2
+  },
+  {
+    _id: 'teamMember-nullx',
+    handle: 'nullx',
+    name: 'nullx',
+    role: 'Cryptography',
+    bio: 'Works on cryptographic attacks, lattice techniques, and hard math challenges.',
+    tags: ['crypto', 'math', 'ecc'],
+    order: 3
+  },
+  {
+    _id: 'teamMember-phantom',
+    handle: 'phantom',
+    name: 'phantom',
+    role: 'Reverse Engineering',
+    bio: 'Reverse engineering and malware analysis with a taste for obfuscated VMs.',
+    tags: ['rev', 'malware', 'rust'],
+    order: 4
+  },
+  {
+    _id: 'teamMember-spectral',
+    handle: 'spectral',
+    name: 'spectral',
+    role: 'Forensics · OSINT',
+    bio: 'Focuses on memory forensics, incident triage, and OSINT workflows.',
+    tags: ['forensics', 'osint', 'memory'],
+    order: 5
+  },
+  {
+    _id: 'teamMember-r4w',
+    handle: 'r4w',
+    name: 'r4w',
+    role: 'Pwn · Exploit Dev',
+    bio: 'Exploit development with a focus on heap primitives and modern mitigations.',
+    tags: ['pwn', 'rop', 'heap'],
+    order: 6
+  },
+  {
+    _id: 'teamMember-vxor',
+    handle: 'vxor',
+    name: 'vxor',
+    role: 'Web · Cloud',
+    bio: 'Builds cloud and web attack chains, from SSRF to privilege escalation.',
+    tags: ['web', 'cloud', 'aws'],
+    order: 7
+  },
+  {
+    _id: 'teamMember-z3r0t',
+    handle: 'z3r0t',
+    name: 'z3r0t',
+    role: 'Misc · Scripting',
+    bio: 'Automation, scripting, and quick tooling to accelerate the team.',
+    tags: ['misc', 'python', 'automation'],
+    order: 8
+  }
 ].map((member) => ({
   _type: 'teamMember',
   ...member

@@ -2,6 +2,8 @@ import './globals.css';
 import { IBM_Plex_Mono, Syne, Space_Grotesk } from 'next/font/google';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import { client } from '../lib/sanity.client';
+import { siteSettingsQuery } from '../lib/sanity.queries';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -26,11 +28,18 @@ export const metadata = {
   description: 'sarrus is a competitive CTF team focused on web exploitation, binary analysis, cryptography, and reverse engineering.'
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const settings = await client.fetch(siteSettingsQuery);
+  const socials: { label?: string; url?: string }[] = settings?.socials ?? [];
+  const cta =
+    socials.find((social) => social?.label?.toLowerCase() === 'ctftime') ||
+    socials.find((social) => social?.label && social?.url) ||
+    undefined;
+
   return (
     <html lang="en" className={`${syne.variable} ${plex.variable} ${hero.variable}`}>
       <body>
-        <Nav />
+        <Nav cta={cta?.label && cta?.url ? { label: cta.label, url: cta.url } : undefined} />
         <main>{children}</main>
         <Footer />
       </body>

@@ -105,6 +105,38 @@ export const teamMembersQuery = groq`*[_type == "teamMember"] | order(order asc,
   avatar
 }`;
 
+export const teamMemberByHandleQuery = groq`*[_type == "teamMember" && (
+  (defined(handle) && string::lower(handle) == string::lower($handle)) ||
+  (defined(name) && string::lower(name) == string::lower($handle)) ||
+  _id == $handle
+)][0]{
+  _id,
+  handle,
+  name,
+  role,
+  bio,
+  tags,
+  avatar,
+  socials[]{label, url},
+  "writeups": *[_type == "writeup" && author._ref == ^._id] | order(date desc){
+    _id,
+    title,
+    slug,
+    category,
+    eventName,
+    excerpt,
+    date
+  },
+  "blogPosts": *[_type == "blogPost" && author._ref == ^._id] | order(date desc){
+    _id,
+    title,
+    slug,
+    summary,
+    date,
+    tags
+  }
+}`;
+
 export const teamProfileQuery = groq`*[_type == "teamProfile"][0]{
   name,
   slug,

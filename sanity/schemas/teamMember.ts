@@ -8,6 +8,7 @@ export default defineType({
     defineField({ name: 'handle', title: 'Handle', type: 'string' }),
     defineField({ name: 'name', title: 'Display Name', type: 'string' }),
     defineField({ name: 'role', title: 'Role', type: 'string' }),
+    defineField({ name: 'bio', title: 'Bio', type: 'text' }),
     defineField({ name: 'tags', title: 'Tags', type: 'array', of: [{ type: 'string' }] }),
     defineField({ name: 'avatar', title: 'Avatar', type: 'image', options: { hotspot: true } }),
     defineField({ name: 'order', title: 'Sort Order', type: 'number' }),

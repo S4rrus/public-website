@@ -12,9 +12,16 @@ const NAV_ITEMS = [
   { href: '/blog', label: 'blog' }
 ];
 
-export default function Nav() {
+type NavCta = {
+  label: string;
+  url: string;
+};
+
+export default function Nav({ cta }: { cta?: NavCta }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const ctaLabel = cta?.label || 'ctftime';
+  const ctaUrl = cta?.url || 'https://ctftime.org/team/393723';
 
   return (
     <nav>
@@ -50,11 +57,11 @@ export default function Nav() {
         <li>
           <a
             className="nav-cta"
-            href="https://ctftime.org/team/393723"
+            href={ctaUrl}
             target="_blank"
             rel="noreferrer"
           >
-            ctftime ↗
+            {ctaLabel} ↗
           </a>
         </li>
       </ul>
@@ -74,11 +81,11 @@ export default function Nav() {
         })}
         <a
           className="nav-cta"
-          href="https://ctftime.org/team/393723"
+          href={ctaUrl}
           target="_blank"
           rel="noreferrer"
         >
-          ctftime ↗
+          {ctaLabel} ↗
         </a>
       </div>
     </nav>
