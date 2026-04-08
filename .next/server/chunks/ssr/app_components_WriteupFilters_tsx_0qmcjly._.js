@@ -1,3 +1,0 @@
-module.exports=[255659,a=>{"use strict";var b=a.i(187924),c=a.i(50944);let d={all:"all",web:"web",pwn:"pwn",crypto:"crypto",rev:"reverse",forensics:"forensics",misc:"misc"};a.s(["default",0,function({active:a}){let e=(0,c.useRouter)(),f=(0,c.useSearchParams)();return(0,b.jsx)("div",{className:"filter-tabs",id:"writeup-filters",children:Object.keys(d).map(c=>(0,b.jsx)("button",{className:`filter-tab ${a===c?"active":""}`,onClick:()=>{let a,b;return a=new URLSearchParams(f.toString()),"all"===c?a.delete("cat"):a.set("cat",c),b=a.toString(),void e.replace(b?`/writeups?${b}`:"/writeups")},type:"button",children:d[c]},c))})}])}];
-
-//# sourceMappingURL=app_components_WriteupFilters_tsx_0qmcjly._.js.map
