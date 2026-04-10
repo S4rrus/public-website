@@ -15,7 +15,7 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
 
 export const statsQuery = groq`{
   "writeups": count(*[_type == "writeup"]),
-  "results": count(*[_type == "result"]),
+  "results": count(*[_type == "result" && defined(rank) && rank <= 30]),
   "members": count(*[_type == "teamMember"]),
   "bestRank": *[_type == "result" && defined(rank)] | order(rank asc)[0].rank
 }`;
@@ -30,7 +30,7 @@ export const recentWriteupsQuery = groq`*[_type == "writeup"] | order(date desc)
   date
 }`;
 
-export const latestResultsQuery = groq`*[_type == "result"] | order(date desc)[0..2]{
+export const latestResultsQuery = groq`*[_type == "result" && defined(rank) && rank <= 30] | order(date desc)[0..2]{
   _id,
   eventName,
   date,
@@ -84,7 +84,7 @@ export const blogPostBySlugQuery = groq`*[_type == "blogPost" && slug.current ==
   author->{name, handle}
 }`;
 
-export const resultsQuery = groq`*[_type == "result"] | order(date desc){
+export const resultsQuery = groq`*[_type == "result" && defined(rank) && rank <= 30] | order(date desc){
   _id,
   eventName,
   eventId,
